@@ -9,8 +9,7 @@
         {% endif %}
         {% for resource, methods in sections %}
             {% for data in methods %}
-                <li><a href="#{{ data.uri|replace({ '/': '' , '{': '', '}': '', '_': '' }) }}{{ data.method|lower }}">{{ data.uri }}</a></li>
-                {#{% include 'NelmioApiDocBundle::method.html.twig' %}#}
+                <li><a href="#{{ data.uri|replace({ '/': '' , '{': '', '}': '', '_': '' }) }}{{ data.method|lower }}">{{ data.uri|replace({ '{': '<', '}': '>' }) }}</a></li>
             {% endfor %}
         {% endfor %}
     {% endfor %}
@@ -23,7 +22,7 @@
             <h2>{{ section }}</h2>
         {% endif %}
         {% for resource, methods in sections %}
-            <li class="resource">
+            <div class="resource">
                 <div class="heading">
                     {% if section == '_others' and resource != 'others' %}
                         <h3>{{ resource }}</h3>
@@ -31,16 +30,16 @@
                         <h3>{{ resource }}</h3>
                     {% endif %}
                 </div>
-                <ul class="endpoints">
-                    <li class="endpoint">
-                        <ul class="operations">
+                <section class="endpoints">
+                    <section class="endpoint">
+                        <section class="operations">
                             {% for data in methods %}
                                 {% include 'NelmioApiDocBundle::method.html.twig' %}
                             {% endfor %}
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+                        </section>
+                    </section>
+                </section>
+            </div>
         {% endfor %}
         </section>
     {% endfor %}

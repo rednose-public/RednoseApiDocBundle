@@ -37,13 +37,11 @@
                         {% block nav %}{% endblock %}
                     </ul>
                 </div>
-                <div class="span9">
+                <div class="span9 rednose-apidoc-body">
                     <section>
                         {% include motdTemplate %}
                     </section>
-                    <ul id="resources">
-                        {% block content %}{% endblock %}
-                    </ul>
+                    {% block content %}{% endblock %}
                 </div>
             </div>
         </div>

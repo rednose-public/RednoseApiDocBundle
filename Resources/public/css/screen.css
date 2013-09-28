@@ -1,4 +1,32 @@
-.rednose-apidoc-sidenav.affix {
+.rednose-apidoc-body table {
+	width: auto;
+}
+
+.rednose-apidoc-body li {
+	padding-bottom: 10px;
+}
+
+.rednose-apidoc-body li:last-child {
+	padding-bottom: 0;
+}
+
+.rednose-apidoc-body table td {
+	padding: 0 10px 0 0;
+    border-top: none;
+}
+
+.rednose-apidoc-body .param {
+	font-weight: bold;
+	padding-right: 6px;
+}
+
+.rednose-apidoc-body .required {
+	color: #999;
+	font-style: italic;
+	padding-right: 6px;
+}
+
+.rednose-apidoc-sidebar .affix {
 	top: 0;
 }
 
