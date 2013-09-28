@@ -23,7 +23,7 @@
     <dl class="dl-horizontal">
         {% if data.description is defined %}
             <dt>Description</dt>
-            <dd><p>{{ data.description }}</p></dd>
+            <dd><p>{{ data.description|raw }}</p></dd>
         {% endif %}
 
         {% if data.requirements is defined  and data.requirements is not empty %}
@@ -31,7 +31,7 @@
             <dd>
                 <ul class="unstyled">
                     {% for name, infos in data.requirements %}
-                        <li><span class="param">{{ name }}</span> {{ infos.description }}</li>
+                        <li><span class="param">{{ name }}</span> {{ infos.description|raw }}</li>
                     {% endfor %}
                 </ul>
             </dd>
@@ -46,13 +46,13 @@
                 <ul class="unstyled">
                     {% if data.parameters is defined and data.parameters is not empty %}
                         {% for name, infos in data.parameters %}
-                            <li><span class="param">{{ name }}</span> {{ infos.required ? '<span class="required">required</span> ' : '' }}{{ infos.description }}</li>
+                            <li><span class="param">{{ name }}</span> {{ infos.required ? '<span class="required">required</span> ' : '' }}{{ infos.description|raw }}</li>
                         {% endfor %}
                     {% endif %}
 
                     {% if data.filters is defined and data.filters is not empty %}
                         {% for name, infos in data.filters %}
-                            <li><span class="param">{{ name }}</span>{{ infos.description }}</li>
+                            <li><span class="param">{{ name }}</span>{{ infos.description|raw }}</li>
                         {% endfor %}
                     {% endif %}
                 </ul>
@@ -61,17 +61,28 @@
 
         {% if data.documentation is defined and data.documentation is not empty %}
             <dt>Documentation</dt>
-            <dd><p>{{ data.documentation }}</p></dd>
+            <dd><p>{{ data.documentation|raw }}</p></dd>
         {% endif %}
 
         {% if data.response is defined and data.response is not empty %}
-            <dt>Return</dt>
+            <dt>Response</dt>
             <dd>
-                <ul class="unstyled">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     {% for name, infos in data.response %}
-                        <li><span class="param">{{ name }}</span> {{ infos.required ? '<span class="required">required</span> ' : '' }}{{ infos.description }}</li>
+                        <tr>
+                            <td><code>{{ name }}</code></td>
+                            <td>{{ infos.description|raw }}</td>
+                        </tr>
                     {% endfor %}
-                </ul>
+                    </tbody>
+                </table>
             </dd>
         {% endif %}
 
@@ -86,7 +97,7 @@
                             <td>
                                 <ul class="unstyled">
                                     {% for description in descriptions %}
-                                        <li>{{ description }}</li>
+                                        <li>{{ description|raw }}</li>
                                     {%  endfor %}
                                 </ul>
                             </td>

@@ -1,5 +1,10 @@
-.rednose-apidoc-body table {
+.rednose-apidoc-body .table-condensed {
 	width: auto;
+}
+
+.rednose-apidoc-body .table-condensed td {
+	padding: 0 10px 0 0;
+    border-top: none;
 }
 
 .rednose-apidoc-body li {
@@ -8,11 +13,6 @@
 
 .rednose-apidoc-body li:last-child {
 	padding-bottom: 0;
-}
-
-.rednose-apidoc-body table td {
-	padding: 0 10px 0 0;
-    border-top: none;
 }
 
 .rednose-apidoc-body .param {
