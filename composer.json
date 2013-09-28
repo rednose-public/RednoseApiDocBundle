@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "nelmio/api-doc-bundle": "2.3.1"
+        "nelmio/api-doc-bundle": "2.3.1",
+        "rednose/framework-bundle": "dev-master"
     },
     "autoload": {
         "psr-0": { "Rednose\\ApiDocBundle": "" }
