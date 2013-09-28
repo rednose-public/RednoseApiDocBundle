@@ -14,5 +14,9 @@
     ],
     "require": {
         "nelmio/api-doc-bundle": "2.3.1"
-    }
+    },
+    "autoload": {
+        "psr-0": { "Rednose\\ApiDocBundle": "" }
+    },
+    "target-dir": "Rednose/ApiDocBundle"
 }
