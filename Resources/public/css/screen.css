@@ -15,6 +15,10 @@
 	padding-bottom: 0;
 }
 
+.rednose-apidoc-body .url {
+	padding-top: 10.5px;
+}
+
 .rednose-apidoc-body .param {
 	font-weight: bold;
 	padding-right: 6px;

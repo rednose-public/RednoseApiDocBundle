@@ -26,16 +26,20 @@
             <dd><p>{{ data.description|raw }}</p></dd>
         {% endif %}
 
-        {% if data.requirements is defined  and data.requirements is not empty %}
-            <dt>Requirements</dt>
-            <dd>
+        <dt class="url">URL</dt>
+        <dd>
+            <pre>{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}{{ data.uri|replace({ '{': '<', '}': '>' }) }}</pre>
+
+            {% if data.requirements is defined  and data.requirements is not empty %}
                 <ul class="unstyled">
                     {% for name, infos in data.requirements %}
-                        <li><span class="param">{{ name }}</span> {{ infos.description|raw }}</li>
+                        {% if infos.description is defined and infos.description is not empty %}
+                            <li><span class="param">{{ name }}</span>{{ infos.description|raw }}</li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
-            </dd>
-        {% endif %}
+            {% endif %}
+        </dd>
 
         <dt>Method</dt>
         <dd><p>{{ data.method|upper }}</p></dd>
@@ -46,7 +50,7 @@
                 <ul class="unstyled">
                     {% if data.parameters is defined and data.parameters is not empty %}
                         {% for name, infos in data.parameters %}
-                            <li><span class="param">{{ name }}</span> {{ infos.required ? '<span class="required">required</span> ' : '' }}{{ infos.description|raw }}</li>
+                            <li><span class="param">{{ name }}</span>{{ infos.required ? '<span class="required">required</span>' : '' }}{{ infos.description|raw }}</li>
                         {% endfor %}
                     {% endif %}
 
