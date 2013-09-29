@@ -9,7 +9,7 @@
         {% endif %}
         {% for resource, methods in sections %}
             {% for data in methods %}
-                <li><a href="#{{ data.uri|replace({ '/': '' , '{': '', '}': '', '_': '' }) }}{{ data.method|lower }}">{{ data.uri|replace({ '{': '<', '}': '>' }) }}</a></li>
+                <li><a href="#{{ data.uri|replace({ '/': '' , '{': '', '}': '', '_': '' }) }}{{ data.method|lower|replace({ '|': '' }) }}">{{ data.uri|replace({ '{': '<', '}': '>' }) }}</a></li>
             {% endfor %}
         {% endfor %}
     {% endfor %}

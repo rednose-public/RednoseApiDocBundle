@@ -1,4 +1,4 @@
-<section id="{{ data.uri|replace({ '/': '', '{': '', '}': '', '_': '' }) }}{{ data.method|lower }}" class="{{ data.method|lower }} operation">
+<section id="{{ data.uri|replace({ '/': '', '{': '', '}': '', '_': '' }) }}{{ data.method|lower|replace({ '|': '' }) }}" class="operation">
     <h3>
         {% if data.deprecated %}
         <span class="deprecated">
