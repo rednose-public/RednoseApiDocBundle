@@ -4,7 +4,7 @@
     "keywords": ["api", "documentation", "doc", "rest"],
     "type": "symfony-bundle",
     "homepage": "http://www.rednose.nl",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Marc Bontje",
